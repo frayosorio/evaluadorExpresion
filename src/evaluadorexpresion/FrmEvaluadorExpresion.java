@@ -123,7 +123,11 @@ public class FrmEvaluadorExpresion extends javax.swing.JFrame {
         //Asignar la expresion INFIJO leida
         PostFijo.expresionInfijo = txtExpresion.getText();
         //Obtener la expresion POSTFIJO respectiva
-        PostFijo.obtenerPostfijo();
+        String pf=PostFijo.obtenerPostfijo();
+        
+        
+        JOptionPane.showMessageDialog(null, pf);
+        
         //Verificar que no haya sucedido error
         if (PostFijo.obtenerError().equals("")) {
             //Obtener los nombres de variables que hay en la expresión

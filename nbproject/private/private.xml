@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/FrmEvaluadorExpresion.java</file>
-            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/EvaluadorExpresion.java</file>
-            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/PostFijo.java</file>
+            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Cursos/Curso%202022-01/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/FrmEvaluadorExpresion.java</file>
+            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Cursos/Curso%202022-01/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/PostFijo.java</file>
+            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Cursos/Curso%202022-01/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/Nodo.java</file>
+            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Cursos/Curso%202022-01/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/TipoOperando.java</file>
+            <file>file:/D:/Catedra/Politecnico%20JIC/Estructuras%20de%20Datos/Cursos/Curso%202022-01/Ejercicios/EvaluadorExpresion/src/evaluadorexpresion/ArbolBinario.java</file>
         </group>
     </open-files>
 </project-private>

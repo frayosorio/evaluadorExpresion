@@ -168,6 +168,45 @@ public class PostFijo {
         }
     }
 
+    public static ArbolBinario obtenerArbol() {
+
+        Stack p = new Stack();
+
+        TipoOperando tipo = TipoOperando.NINGUNO;
+        errorExpresion = "";
+        int i = 0;
+        String texto = "";
+        while (i < expresionPostfijo.length() && errorExpresion.equals("")) {
+            String caracter = expresionPostfijo.substring(i, i + 1);
+            if (esLetra(caracter) && tipo == TipoOperando.CONSTANTE) {
+                errorExpresion = "Una constante numérica no puede tener letras";
+            } else if ((esLetra(caracter) && tipo != TipoOperando.CONSTANTE)
+                    || (esDigito(caracter) && tipo == TipoOperando.VARIABLE)) {
+                tipo = TipoOperando.VARIABLE;
+                texto += caracter;
+            } else if (esDigito(caracter) && tipo != TipoOperando.VARIABLE) {
+                tipo = TipoOperando.CONSTANTE;
+                texto += caracter;
+            } else if (caracter.equals(" ") && tipo != TipoOperando.NINGUNO) {
+                //apilar el operando obtenido
+                Nodo nOperando = new Nodo(texto, tipo);
+                p.push(nOperando);
+                texto = "";
+                tipo = TipoOperando.NINGUNO;
+            } else {
+                caracter = expresionPostfijo.substring(i, i + 1);
+                if (esOperador(caracter)) {
+                    Nodo nOperador = new Nodo(caracter, TipoOperando.NINGUNO);
+                    Nodo nIzquierdo = (Nodo) p.pop();
+                    Nodo nDerecho = (Nodo) p.pop();
+                    p.push(nOperador);
+                }
+            }
+            i++;
+        }
+        return errorExpresion.equals("") ? new ArbolBinario((Nodo) p.pop()) : null;
+    }
+
     /* Metodo que ejecuta la expresion con base en las variables encontradas
      * y los valores aportados de dichas variables
      */
