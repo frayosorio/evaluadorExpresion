@@ -197,8 +197,10 @@ public class PostFijo {
                 caracter = expresionPostfijo.substring(i, i + 1);
                 if (esOperador(caracter)) {
                     Nodo nOperador = new Nodo(caracter, TipoOperando.NINGUNO);
-                    Nodo nIzquierdo = (Nodo) p.pop();
                     Nodo nDerecho = (Nodo) p.pop();
+                    Nodo nIzquierdo = (Nodo) p.pop();
+                    nOperador.izquierdo = nIzquierdo;
+                    nOperador.derecho = nDerecho;
                     p.push(nOperador);
                 }
             }

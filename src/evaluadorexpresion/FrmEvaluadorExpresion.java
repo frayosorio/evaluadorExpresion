@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package evaluadorexpresion;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 public class FrmEvaluadorExpresion extends javax.swing.JFrame {
 
     List<String> variables;
-    
+
     /**
      * Creates new form FrmEvaluadorExpresion
      */
@@ -71,6 +70,8 @@ public class FrmEvaluadorExpresion extends javax.swing.JFrame {
             }
         });
 
+        txtResultado.setBackground(new java.awt.Color(0, 0, 0));
+        txtResultado.setForeground(new java.awt.Color(255, 255, 51));
         txtResultado.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,11 +124,8 @@ public class FrmEvaluadorExpresion extends javax.swing.JFrame {
         //Asignar la expresion INFIJO leida
         PostFijo.expresionInfijo = txtExpresion.getText();
         //Obtener la expresion POSTFIJO respectiva
-        String pf=PostFijo.obtenerPostfijo();
-        
-        
-        JOptionPane.showMessageDialog(null, pf);
-        
+        String pf = PostFijo.obtenerPostfijo();
+
         //Verificar que no haya sucedido error
         if (PostFijo.obtenerError().equals("")) {
             //Obtener los nombres de variables que hay en la expresión
@@ -149,7 +147,21 @@ public class FrmEvaluadorExpresion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcesarActionPerformed
 
     private void btnEvaluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaluarActionPerformed
-
+        ArbolBinario ab = PostFijo.obtenerArbol();
+        
+        List<Double> valores=new ArrayList<>();
+        
+        DefaultTableModel dtm=(DefaultTableModel)tbl.getModel();
+        for(int i=0;i<variables.size();i++){
+            try{
+                valores.add(Double.parseDouble(dtm.getValueAt(i, 1).toString()));
+            }
+            catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Falta variable "+dtm.getValueAt(i, 0).toString());
+            }
+        }
+    
+        txtResultado.setText(String.valueOf(ab.evaluar(variables, valores)));
     }//GEN-LAST:event_btnEvaluarActionPerformed
 
     /**
